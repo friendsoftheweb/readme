@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+Dir.chdir APP_ROOT do
+  # Install Ruby Dependencies
+  puts '== Installing dependencies =='
+  system! 'gem install bundler --conservative'
+  system('bundle check') || system!('bundle install')
+
+  # Install JavaScript dependencies if using Yarn
+  system! 'bin/yarn'
+
+  puts "\n== Copying sample files =="
+  unless File.exist?("config/database.yml")
+    system! "cp config/database.yml.sample config/database.yml"
+  end
+  unless File.exist?(".env")
+    system! "cp .env.sample .env"
+  end
+  unless File.exist?(".env.test")
+    system! "cp .env.sample .env.test"
+  end
+
+  puts "\n== Preparing database =="
+  unless system "bin/rails db:version > /dev/null 2>&1"
+    puts "\n== Creating Database =="
+    system! "bin/rails db:create db:schema:load"
+    system! "bin/rails db:seed"
+
+    puts "\n== Creating sample data =="
+    # Since the staging data overwrites existing data, we only want to run it
+    # if the database was new.
+    system! "bin/rails data:stage"
+  end
+
+  system! 'bin/rails update'
+
+  puts "\n== Setup Complete =="
+  puts "      You can now start the dev server:"
+  puts "      $ bin/rails server"
+end
