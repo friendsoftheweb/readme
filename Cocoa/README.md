@@ -49,6 +49,14 @@ Although the general wisdom seems to be to commit dependencies, let's not.
 In the future the [Swift Package Manager](https://swift.org/package-manager/) may supersede these options.
 
 
+## Managing Assets
+
+Assets should be included in one or more `.xcassets` packages and grouped into logical folders.
+
+Whenever possible use `.pdf` assets for icons and other graphics. In most cases check 'Universal' and choose 'Single Scale' so only one image needs to be added.
+
+For mono-colored icons, always use a black on transparent `.pdf` and choose 'Render as: Template Image'. Template images can be tinted any color, making it possible to change the color later without re-creating assets.
+
 
 ## Project Versioning
 
