@@ -1,6 +1,9 @@
-# Project Name
+# (Project Name)
 
-Project Overview
+(A Description of the Project)
+
+If you have any problems setting up or running the project, please file an
+issue.
 
 ## Project Setup & Development
 
@@ -39,7 +42,8 @@ or the production data can be duplicated to your local environment with:
 bin/rake data:clone_production
 ```
 
-Note the copied data with have sensitive information such as passwords scrubbed or randomized.
+Note the copied data with have sensitive information such as passwords scrubbed
+or randomized.
 
 To run this: 
 

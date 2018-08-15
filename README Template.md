@@ -2,6 +2,8 @@
 
 Project summary, brief and assuming the reader knows nothing about this project.
 
+State how to address problems with setting up the project, likely by filing a
+Github issue.
 
 ## Working on the Project
 

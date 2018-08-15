@@ -1,6 +1,18 @@
-# Setup
+# (Project Name)
 
-The project is targeted at Swift 4. Build, run, and distribute with [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+(A Description of the Project)
+
+If you have any problems setting up or running the project, please file an
+issue.
+
+## Setup
+
+The project is targeted at Swift 4. Build, run, and distribute with
+[Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+
+
+If you have any problems setting up or running the project, please file an
+issue.
 
 ### Dependencies
 
@@ -14,7 +26,8 @@ To install Cocoapods:
 sudo gem install cocoapods
 ```
 
-Cocoapods requires Ruby, and might be complicated if you're using something like `rbenv` to manage multiple versions of Ruby.
+Cocoapods requires Ruby, and might be complicated if you're using something
+like `rbenv` to manage multiple versions of Ruby.
 
 Install dependencies by running this in the project directory:
 
@@ -24,13 +37,14 @@ pod install
 
 #### Carthage
 
-Dependencies are installed through [Carthage](https://github.com/Carthage/Carthage).
+Dependencies are installed through
+[Carthage](https://github.com/Carthage/Carthage).
 
-[Install Carthage](https://github.com/Carthage/Carthage#installing-carthage) with Homebrew
-or with the installer package. Then run in the project directory:
+[Install Carthage](https://github.com/Carthage/Carthage#installing-carthage)
+with Homebrew or with the installer package. Then run in the project directory:
 
 ```shell
-$ carthage bootstrap --platform macOS
+carthage bootstrap --platform macOS
 ```
 
 
@@ -59,4 +73,5 @@ Run the project from the `.xcworkspace` file, use the `MyProject` scheme.
 
 ## Swift and Objective-C
 
-Older source files are written in Objective-C, but Swift is favored as much as possible. New sources should be written in swift.
+Older source files are written in Objective-C, but Swift is favored as much as
+possible. New sources should be written in swift.
