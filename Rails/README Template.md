@@ -1,5 +1,7 @@
 # Project Name
 
+Project Overview
+
 ## Project Setup & Development
 
 ### Prerequisites
@@ -19,16 +21,70 @@
 - Navigate to the project directory in the terminal and run
 
 ```shell
-    bin/setup
+bin/setup
 ```
 
-The setup script will:
 
-- install dependencies
-- create a database (if needed)
-- create default configuration files
-- add test data (if no data existed)
+#### Staging Data
 
-It is safe to re-run the setup script to update things as well. It will not overwrite any modifications or replace the database.
+A sample set of staging data for testing and development can be created with:
 
-The node version is not locked in any way. If if `yarn` fails, check you have Node and Yarn installed and up to date.
+```shell
+bin/rake data:stage
+```
+
+or the production data can be duplicated to your local environment with:
+
+```shell
+bin/rake data:clone_production
+```
+
+Note the copied data with have sensitive information such as passwords scrubbed or randomized.
+
+To run this: 
+
+- Heroku CLI must be installed with appropriate permissions.
+- Postgres must be running.
+- Prodocution git remote must exist.
+
+
+### Running
+
+Postgres must be running.
+
+In the project directory, run:
+
+```shell
+bin/foreman start --procfile Procfile.local
+```
+
+
+### Updating
+
+After pulling changes or switching branches, run:
+
+```shell
+bin/update
+```
+
+
+### Deploying
+
+```shell
+bin/deploy
+```
+
+
+### Running Tests
+
+Ruby Tests: 
+
+```shell
+bin/rspec
+```
+
+Javascript Tests:
+
+```shell
+yarn run test:watch
+```
